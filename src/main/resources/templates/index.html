@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+<h1>Submit a Bug</h1>
+
+<form th:action="register" th:method="post" th:object="${bugForm}">
+    <label for="employeeName">Employee Name</label>
+    <input id="employeeName" type="text" th:field="*{employeeName}">
+
+    <label for="getBugInfo">Bug Details </label>
+    <input id="getBugInfo" type="text" th:field="*{bugInfo}">
+
+    <label for="getStatus">Bug Status</label>
+<!--    <input id="getStatus" type="text" th:field="*{status}">-->
+    <select name="getStatus" id="getStatus" th:field="*{status}">
+        <option value="in progress">In Progress</option>
+        <option value="reviewing">Reviewing</option>
+        <option value="need attention">Need Attention</option>
+        <option value="resolved">Resolved</option>
+    </select>
+
+    <button type="submit"> Submit</button>
+
+</form>
+</body>
+</html>
